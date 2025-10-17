@@ -1,10 +1,10 @@
 "use client";
 
 import { ProductWithImage } from "@/models/models";
-import { Card, CardContent } from "../ui/card";
-import Image from "next/image";
 import gsap from "gsap";
+import Image from "next/image";
 import { useRef } from "react";
+import { Card, CardContent } from "../ui/card";
 
 export const ProductCard = ({
   product,
@@ -57,16 +57,17 @@ export const ProductCard = ({
         onMouseLeave={onMouseLeave}
       >
         <div className="relative aspect-square overflow-hidden bg-gray-100">
-          {product.imageUrl && (
-            <div id="image" ref={imageRef}>
-              <Image
-                src={product.imageUrl}
-                alt={product.name ?? "product-card"}
-                fill
-                className="w-full h-full object-cover"
-              />
-            </div>
-          )}
+          <div id="image" ref={imageRef} className="w-full h-full">
+            <Image
+              src={
+                product.imageUrl ?? "https://placehold.co/300x200?text=%3C/%3E"
+              }
+              alt={product.name ?? "product-card"}
+              fill
+              className="w-full h-full object-cover"
+              unoptimized={!product.imageUrl}
+            />
+          </div>
           <div className="absolute top-3 right-3 bg-white/90 backdrop-blur-sm px-2 py-1 text-xs tracking-wider text-gray-900">
             #{product.id}
           </div>

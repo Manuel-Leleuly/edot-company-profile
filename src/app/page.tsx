@@ -3,9 +3,9 @@ import { Hero } from "@/components/hero";
 import { ProductSection } from "@/components/product/product-section";
 import { NetworkUtils } from "@/utils/network-utils";
 import gsap from "gsap";
-import { ScrollTrigger } from "gsap/all";
+import { ScrollTrigger, SplitText } from "gsap/all";
 
-gsap.registerPlugin(ScrollTrigger);
+gsap.registerPlugin(ScrollTrigger, SplitText);
 
 export default async function HomePage() {
   const network = NetworkUtils.create();
